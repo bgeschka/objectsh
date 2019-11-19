@@ -7,7 +7,7 @@ you can run them with TEST=1 ./objectsh.sh
 ## Implements
 * Objects with member functions
 * Prototypal multi-inheritance
-* $this
+* $this, properly reflected on member functions/base classes
 * getters are deep, setters are shallow
 
 ## Caveats
