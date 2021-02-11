@@ -23,7 +23,7 @@ _walk(){
 }
 $animal :: walk = _walk
 
-§ dog extends $animal
+@ dog extends $animal
 _bark(){
 	echo "$($this :: name) can bark"
 }
