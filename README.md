@@ -11,13 +11,13 @@ you can run them with TEST=1 ./objectsh.sh
 * getters are deep, setters are shallow
 
 ## Caveats
-* ugly syntax as for object creation with "§ myobject" and accessors with "::" notation
+* ugly syntax as for object creation with "@ myobject" and accessors with "::" notation (needs spaces "object :: attr")
 * performance penalty on getters as for subshelling-echoing the return values
 
 # Examples
 
 ```shell
-§ animal
+@ animal
 _walk(){
 	echo "$($this :: name) can walk"
 }

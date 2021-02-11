@@ -2,7 +2,7 @@
 # Copyright (C) 2019 bjoern@geschka.org
 #
 # Simple object wrapper for posix shells
-# '§' denotes creation of an object
+# '@' denotes creation of an object
 # '::' are accessors for functions and variables
 #
 # usage example:
@@ -95,7 +95,7 @@ _object(){
 
 	eval export "$1=$__this_objectid"
 }
-alias §=_object
+alias @=_object
 
 
 
@@ -133,7 +133,7 @@ if [ -n "$TEST" ]; then #start tests
 
 
 testhead "Setters"
-§ setter_test
+@ setter_test
 $setter_test :: a = "some foo"
 assert "setting single string values to member variables" "$($setter_test :: a)" "some foo"
 $setter_test :: b = 1234
@@ -147,7 +147,7 @@ assert "setting multiple integer values to member variables" "$($setter_test :: 
 
 
 testhead "Passing objects by reference to functions"
-§ pass_ref_test
+@ pass_ref_test
 $pass_ref_test :: a = 1336
 passtest(){
 	out="$($1 :: a)"
@@ -159,7 +159,7 @@ passtest $pass_ref_test
 
 
 testhead "Member functions"
-§ memfun
+@ memfun
 $memfun :: a = 1337
 somefun(){
 	echo "blah"
@@ -194,7 +194,7 @@ assert "member function change internal variable" "$($memfun :: asdf)" "5679"
 
 
 testhead "Member changing \$this variables"
-§ thistest
+@ thistest
 $thistest :: a = 1338
 somefun2(){
 	$this :: a
@@ -208,13 +208,13 @@ assert "self accessor \$this" "$($thistest :: fun)" "1338"
 
 
 testhead "Inheritance model"
-§ animal
+@ animal
 walk(){
 	echo "$($this :: name) can walk"
 }
 $animal :: walk = walk
 
-§ dog extends $animal
+@ dog extends $animal
 bark(){
 	echo "$($this :: name) can bark"
 }
@@ -230,7 +230,7 @@ assert "self call" "$($dog :: bark)" "bert can bark"
 
 
 testhead "Multi Inheritance model, object scoping"
-§ entity
+@ entity
 exists(){
 	echo "$($this :: name) can exist"
 }
@@ -244,13 +244,13 @@ setself_testvar(){
 }
 $entity :: setself_testvar = setself_testvar
 
-§ animal2 extends $entity
+@ animal2 extends $entity
 walk(){
 	echo "$($this :: name) can walk"
 }
 $animal2 :: walk = walk
 
-§ dog2 extends $animal2
+@ dog2 extends $animal2
 bark(){
 	echo "$($this :: name) can bark"
 }
@@ -276,13 +276,13 @@ assert "call self call" "$($dog2 :: bark)" "hugo can bark"
 
 
 testhead "Member functions argument globbing"
-§ membertest_args_parent
+@ membertest_args_parent
 fun2(){
 	echo "[$1] [$2] [$3]"
 }
 $membertest_args_parent :: fun2 = fun2
 
-§ membertest_args extends "$membertest_args_parent"
+@ membertest_args extends "$membertest_args_parent"
 fun1(){
 	echo "[$1] [$2] [$3]"
 }
