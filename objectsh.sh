@@ -6,7 +6,7 @@
 # '::' are accessors for functions and variables
 #
 # usage example:
-#	§ myobject
+#	@ myobject
 # 	$myobject :: a = "test1"
 # 	$myobject :: b = "test2" "somestring"
 # 	first="$($myobject :: a)" #results in first="test1"
@@ -25,7 +25,7 @@
 #	you can run them with TEST=1 ./objectsh.sh
 #
 #	TODO
-#	§ myobject free #removes the object from memory
+#	@ myobject free #removes the object from memory
 #
 #
 
