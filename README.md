@@ -1,7 +1,7 @@
 # objectsh
 PoC for Posix shell scripts with objects in ~66 lines
 
-For examples check the lower part of objectsh.sh
+Examples in the lower part of objectsh.sh
 you can run them with TEST=1 ./objectsh.sh
 
 ## Implements
